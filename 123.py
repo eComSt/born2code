@@ -1,9 +1,3 @@
-num1 = 20
-
-num2 = 7
-
-s = num1 + num2
-
-ost = s % num2
-
-print(s // ost)
+a = ['1', '2', '3']
+b = list(map(int,a))
+print(b)
