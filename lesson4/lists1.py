@@ -12,12 +12,18 @@ my_list.append("LAST ELEMENT")
 my_list.insert(0,"FIRST ELEMENT")
 my_list[0] = "NEW FIRST ELEMENT"
 my_list.insert(4,"FOURTH ELEMENT")
-my_list.remove("SOME MORE TEXT!!!")
 print(my_list)
+my_list.remove("SOME MORE TEXT!!!")
+# del my_list[3]
+# print(my_list)
 # print(my_list[3])
 # print(my_list)
 # print(my_list[-4])
 # for i in my_list:
 #     print(i)
 # # print("End of list")
-print(len(my_list))
+# print(len(my_list))
+if 42 in my_list:
+    print("42 in list")
+else:
+    print("42 not in list")
