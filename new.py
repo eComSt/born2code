@@ -63,7 +63,7 @@ def get_anekdot():
 def printw(f):
     txt.insert(1.0,f())
 
-printw(get_data)
+printw(get_anekdot)
 
 while True:
     root.update()
