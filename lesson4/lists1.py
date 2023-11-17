@@ -23,7 +23,26 @@ my_list.remove("SOME MORE TEXT!!!")
 #     print(i)
 # # print("End of list")
 # print(len(my_list))
-if 42 in my_list:
-    print("42 in list")
-else:
-    print("42 not in list")
+# if 42 in my_list:
+#     print("42 in list")
+# else:
+#     print("42 not in list")
+
+list1 = [1, 2, 3,4]
+list2 = [4, 5, 6, "NEXT"]
+# print(list1 + list2)
+
+
+# for i in my_list:
+#     print(i)
+
+# for i in range(len(my_list)):
+#     print(i," элемент списка ",my_list[i])
+
+x = [1,2,5,2,4,6,8,5,3]
+# x.sort(reverse=True)
+# y = sorted(x,reverse=True)
+
+y = reversed(x)
+print(x)
+print(y)
