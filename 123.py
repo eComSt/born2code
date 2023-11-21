@@ -1,3 +1,4 @@
-a = "Hello," + str(123) + " World!" 
-b = "Hello,{} '!!!!' World {} !!!!".format(123,"sdsdfsf")
-print(b)
+lst = input().split()
+for i,j in enumerate(lst):
+    lst[i] = int(j)
+print(sum(lst)/len(lst))
