@@ -59,6 +59,6 @@ for i in range(len(lst)): #lst:
 # else:
 #     print("NO")
 # Итерирование по строкам и метод isdigit()
-for sym in 'year2023':
-    if sym.isdigit():
-        print(sym)
+# for sym in 'year2023':
+#     if sym.isdigit():
+#         print(sym)

@@ -2,4 +2,5 @@ dictionary = {
     "абама": "АРТЕМ БОТ",
     "абхазия": "АБХАЗИЯ",
 }
-print (dictionary["абама"])
+cost = "абама"
+print (dictionary[cost])

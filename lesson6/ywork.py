@@ -1,3 +1,4 @@
+# This code initializes an empty dictionary called catalog_books.
 catalog_books = {
 
 }
@@ -6,7 +7,7 @@ while True:
     print('Список возвожных действий: ')
     print('1 - Доб книгу')
     print('2 - Поиск по названию')
-    print('3 - Удаление книги книгу')
+    print('3 - Удаление книги')
     print('4 - Показать информацию о всех книгах в каталоге')
     print('0')
     # Запрашиевм у пользователя номер действия

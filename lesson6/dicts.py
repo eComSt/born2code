@@ -50,5 +50,6 @@ dict3 = dictionary.copy()
 dictionary["apple"] = "42"
 # print(dict3["apple"])
 # print(dictionary["apple"])
-
-print(dictionary.setdefault('aple','Нет такого слова в словаре'))
+import json
+json.dump(dictionary,open("dicts.json",'w'))
+# print(dictionary.setdefault('aple','Нет такого слова в словаре'))
