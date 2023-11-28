@@ -1,12 +1,17 @@
-lst = ['12','23','34','42']
-print(lst)
-lst =  list(map(int,lst))
-print(lst)
-# for i in range(len(lst)):
-#     lst[i] = int(lst[i])
+from time import sleep
 
-
-
-# string = "123"
-# string = int(string)
-# print(string)
+def pBB(n, i, t): 
+    pb = ""
+    for j in range(40):
+        if j <= int(40*i//t):
+            pb += "▮"
+        else:
+            pb+= "▯"
+    perc = "{0:.1f}".format(100*i/t)
+    s = f'\r{n}\t[{pb}] {perc}% \t {i}/{t}'
+    
+for i in range(10):
+    x = pBB("Progress",i+1,10)
+    print(x, end="")
+    sleep(1)
+    
