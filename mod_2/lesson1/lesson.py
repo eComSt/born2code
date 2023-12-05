@@ -1,0 +1,18 @@
+a = set()
+b ={1,2,3}
+for i in range(3,10):
+    a.add(i)
+# print(a)
+# print(b)
+# print(a.intersection(b))
+# print(b.intersection(a))
+# c = a.difference(b)
+# d = b.difference(a)
+# print(a)
+# print(b)
+# print(c)
+# print(d)
+# a.difference_update(b)
+# a = a.difference(b)
+a.update(b)
+print(a)
