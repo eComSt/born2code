@@ -1,0 +1,1 @@
+print({int(num): sum(int(digit) for digit in str(num)) for num in numbers_list.split()})
