@@ -8,10 +8,10 @@ def pBB(n, i, t):
         else:
             pb+= "▯"
     perc = "{0:.1f}".format(100*i/t)
-    s = f'\r{n}\t[{pb}] {perc}% \t {i}/{t}'
+    return f'\r{n}\t[{pb}] {perc}% \t {i}/{t}'
     
 for i in range(10):
     x = pBB("Progress",i+1,10)
     print(x, end="")
-    sleep(1)
+
     
