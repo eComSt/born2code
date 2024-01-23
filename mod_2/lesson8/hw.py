@@ -28,3 +28,4 @@ class Archer:
     def get_damage(self, damage):
         if random.randint(1, 100) <= self.Agility: print(f'Лучник {self.Name} увернулся от удара!')
         else: self.Health -= damage
+
