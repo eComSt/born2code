@@ -27,8 +27,14 @@ class BackendProgrammer(Programmer,Cat):
 backproger = BackendProgrammer(name='Иван', age=27, language='C++')
 backproger.walk()
 backproger.sleep_cat()
-
+proger = Programmer(name='Дима', age=26, language='Python')
 print(issubclass(BackendProgrammer, Programmer))
 print(issubclass(BackendProgrammer, BaseHuman))
 print(BackendProgrammer.__base__)
 print(BaseHuman.__base__)
+print(issubclass(Programmer, object))
+print(issubclass(BackendProgrammer, object))
+# проверяем, что proger является экземпляром класса Programmer
+print(isinstance(proger, Programmer))
+# проверяем, что proger является экземпляром класса BaseHuman
+print(isinstance(proger, BaseHuman))
