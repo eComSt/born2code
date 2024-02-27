@@ -6,7 +6,8 @@ class BaseHuman:
     def introduce(self):    # вывод информацию об имени и возрасте
         print(f'Привет, меня зовут {self.name}!')
         print(f'Мой возраст: {self.age}')
-
+    def seat(self):
+        print(f'Я сесть.')
 # Создаем класс для моделирования программиста
 # Создаем класс для моделирования программиста 
 
@@ -17,6 +18,7 @@ class Programmer(BaseHuman):
         super().__init__(name, age)
         self.language = language # язык программирования
     def coding(self):
+        super().seat()
         print(f'Программист {self.name} сейчас пишет код на {self.language}!')
 
 
