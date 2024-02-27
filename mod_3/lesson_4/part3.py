@@ -1,4 +1,4 @@
-from figure import Figure
+from figure2 import Figure
 class Rectangle(Figure): # класс, описывающий прямоугольник
     def __init__(self, lenght, width): # инициализатор класса
         self._lenght = lenght  # длина
@@ -21,6 +21,7 @@ class Circle(Figure):
     def __init__(self, radius): # инициализатор класса
         self._radius = radius   # радиус
 circ = Circle(8) # экземпляр класса Circle
+#3000 строк кода
 print(circ.get_area()) # выводим на экран площадь круга
 print(circ.get_perimeter())# выводим на экран периметр фигуры
 
