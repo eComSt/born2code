@@ -14,7 +14,7 @@ trans_dict = {
 }
 
 
-token='6903738949:AAHzRiB3rJTdMoStV3O8uQd5PjmopRVvBW8'
+token=''
 bot=telebot.TeleBot(token)
 bot.send_message("246259983","STARTING AP")
 
