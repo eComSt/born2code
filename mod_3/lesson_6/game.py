@@ -26,7 +26,7 @@ class Game:
             return f'Ход игрока: {user_choice}\nХод компьютера: {comp_choice}\nПроигрыш'
     # метод для вывода информации на экран
     def show_info(self):
-        return f'Победы: {self.win}\nПроигрыши: {self.lose}\nНичьи: {self.draw}'
+        return f'Победы: {self.win}\nПроигрыши: {self.lose}\nНичьи: {self.draw}\nИгр: {self.draw+self.lose+self.win}'
     
 class GUI:              # класс графического интерфейса
     def __init__(self): # инициализатор класса
@@ -42,9 +42,12 @@ class GUI:              # класс графического интерфейс
         for c in range(3): window.columnconfigure(index=c, weight=1)
         for r in range(3): window.rowconfigure(index=r, weight=1)
         # создаем и размещаем 3 кнопки
-        self.btn1 = Button(window, text='Камень', font=('Arial', 15))
-        self.btn2 = Button(window, text='Ножницы', font=('Arial', 15))
-        self.btn3 = Button(window, text='Бумага', font=('Arial', 15))
+        self.btn1 = Button(window, text='Камень', font=('Arial', 15),
+                           command=lambda: self.btn_click('Камень'))                                 
+        self.btn2 = Button(window, text='Ножницы', font=('Arial', 15),
+                           command=lambda: self.btn_click('Ножницы'))
+        self.btn3 = Button(window, text='Бумага', font=('Arial', 15),
+                           command=lambda: self.btn_click('Бумага'))
         self.btn1.grid(row=2, column=0)
         self.btn2.grid(row=2, column=1)
         self.btn3.grid(row=2, column=2)
@@ -54,3 +57,7 @@ class GUI:              # класс графического интерфейс
         # создаем и размещаем подпись с информацией об игре
         self.lbl2 = Label(window, justify='left', font=('Arial', 13), text=self.game.show_info())
         self.lbl2.grid(row=0, column=0)
+    def btn_click(self, user_choice):
+        self.lbl['text'] = self.game.move_result(user_choice)
+        self.lbl2['text'] = self.game.show_info()
+app = GUI()
