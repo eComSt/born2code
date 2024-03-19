@@ -1,34 +1,45 @@
-from random import randint
 from tkinter import *
+from random import randint
+
+# класс с описанием логики игры
 class Game:
     def __init__(self):
-        self.random_number = randint(1,100)
-    def check_answer(self, ans):
+        # генерация случайного числа от 1 до 100 включительно
+        self.random_number = randint(1, 100)
+    
+    # метод для проверки введенного числа
+    def check_answer(self, answer):
+        # обработка введенного числа
         try:
-            ans  = int(ans)
-            if 1 <= ans <= 100:
-                st = f"Ваше число {ans}. "
-                if self.random_number == ans:
-                    return st + "Угадали!"
-                elif self.random_number < ans:
-                    return st + "Мое число меньше!"
+            # превращение объекта в целое число
+            answer = int(answer)
+            if 1 <= answer <= 100:
+                if answer == self.random_number:
+                    return f'Ваше число - {answer}. Вы угадали!'
+                elif answer > self.random_number:
+                    return f'Ваше число - {answer}. Мое число меньше!'
                 else:
-                    return st + "Мое число больше!"
+                    return f'Ваше число - {answer}. Мое число больше!'
             else:
-                return "Введите число от 1 до 100"
+                return 'Введите число от 1 до 100 включительно!'
+        # если пользователь ввел некорректные данные
         except ValueError:
-            return "Введите корректное число"
-        
+            return 'Введите корректное число!'
+
+# класс с описанием программного интерфейса
 class GUI:
+    # инициализация главного окна
     def __init__(self):
         self.window = Tk()
         self.window.geometry('300x300')
         self.window.title('Угадай число')
         self.game = Game()          # экземпляр класса Game
+
         self.startUI(self.window)   # наполнение окна виджетами
 
-        self.window.mainloop() 
-
+        self.window.mainloop()      # запуск цикла обработки событий
+    
+    # метод для заполнения главного окна виджетами
     def startUI(self, window):
         # задаем вес для рядов и колонок
         for c in range(3): window.columnconfigure(index=c, weight=1)
@@ -50,7 +61,6 @@ class GUI:
     def button_click(self):
         # получаем число, введенное пользователем
         guess_numb = self.guess_entry.get()
-        print(guess_numb)
         # вызываем метод check_answer(), получаем результат проверки числа и размещаего его на окне
         self.result_message['text'] = self.game.check_answer(guess_numb)
 
