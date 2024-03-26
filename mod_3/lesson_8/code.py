@@ -7,7 +7,7 @@ class MainWindow(CTk):
         super().__init__()
         # задаем название и размеры главного окна
         self.title('Цвета и фигуры')
-        self.geometry('400x300')
+        self.geometry('450x350')
         # задаем сеточную конфигурацию 
         self.grid_columnconfigure((0, 1), weight=1)
         self.grid_rowconfigure((0, 1, 2), weight=1)
@@ -24,7 +24,8 @@ class MainWindow(CTk):
         self.radiobutton_frame = MyRadiobuttonFrame(self, title='Выбери фигуру', values=('Круг', 'Квадрат','Ромбододекаэдр'))
         self.radiobutton_frame.grid(row=0, column=1,  padx=10, pady=10, sticky='nsew')
     def show_info(self):
-        pass
+        self.text.configure(text=f'Цвет: {self.checkbox_frame.get()}\nФигура: {self.radiobutton_frame.get()}')
+
 
 class MyCheckboxFrame(CTkFrame):
     def __init__(self, master, title, values):
