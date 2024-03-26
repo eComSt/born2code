@@ -7,7 +7,7 @@ class MainWindow(CTk):
         super().__init__()
         # задаем название и размеры главного окна
         self.title('Цвета и фигуры')
-        self.geometry('450x350')
+        self.geometry('450x400')
         # задаем сеточную конфигурацию 
         self.grid_columnconfigure((0, 1), weight=1)
         self.grid_rowconfigure((0, 1, 2), weight=1)
