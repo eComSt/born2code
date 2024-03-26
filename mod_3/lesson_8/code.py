@@ -18,7 +18,7 @@ class MainWindow(CTk):
         self.text = CTkLabel(self, text='')
         self.text.grid(row=2, padx=10, pady=10, sticky='ew', columnspan=2)
         
-        self.checkbox_frame = MyCheckboxFrame(self, title='Выбери цвет', values=('Красный', 'Синий', 'Зеленый'))
+        self.checkbox_frame = MyCheckboxFrame(self, title='Выбери цвет', values=('Красный', 'Синий', 'Зеленый','Желтый','Фиолетово-черный'))
         self.checkbox_frame.grid(row=0, column=0,  padx=10, pady=10, sticky='nsew')
         # создаем и размещаем фрейм с радиокнопками
         self.radiobutton_frame = MyRadiobuttonFrame(self, title='Выбери фигуру', values=('Круг', 'Квадрат'))
@@ -37,6 +37,12 @@ class MyCheckboxFrame(CTkFrame):
             checkbox = CTkCheckBox(self, text=values[i])
             checkbox.grid(row=i + 1, column=0, padx=10, pady=10, sticky="w")
             self.checkboxes.append(checkbox)
+        def get(self):
+            checked_checkboxes = []
+            for checkbox in self.checkboxes:
+                if checkbox.get() == 1:
+                    checked_checkboxes.append(checkbox.cget("text"))
+            return ', '.join(checked_checkboxes) 
 
 class MyRadiobuttonFrame(CTkFrame):
     def __init__(self, master, title, values):
