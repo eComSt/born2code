@@ -1,0 +1,10 @@
+{
+    "name": "Andrew",
+    "age": 26,
+    "isFullTime": false,
+    "prog": [
+        "python",
+        "C",
+        "Assembler"
+    ]
+}
