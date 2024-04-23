@@ -1,7 +1,7 @@
-def decorator(f):
+def decorator(func):
     def wrapper():
         print('Начало работы функции')
-        f()
+        func()
         print('Конец работы функции')
     return wrapper
 
@@ -9,7 +9,7 @@ def decorator(f):
 def hello():  
     print('Приветствую в своей программе')
 
-# decorated_hello = decorator(hello)
+# hello = decorator(hello)
 # decorated_decorated_hello = decorator(decorated_hello)
 # decorated_decorated_hello()
 
