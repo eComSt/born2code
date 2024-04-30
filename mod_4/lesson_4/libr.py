@@ -1,11 +1,15 @@
 from functools import wraps
+import logging
+
+logging.basicConfig(level=logging.DEBUG, filename="py_log.log",filemode="w",
+                    format="%(asctime)s %(levelname)s %(message)s")
 
 def log_function_info(func):
     '''Декоратор, который выводит информацию о функции в консоль.'''
     @wraps(func)
     def wrapper(*args, **kwargs):
-        print(f'Вызвана функция {func.__name__}')
-        print(f'Документация: {func.__doc__}')
+        logging.info(f'Вызвана функция {func.__name__}')
+        logging.error(f'Документация: {func.__doc__}')
         return func(*args, **kwargs)
     return wrapper
 
@@ -15,7 +19,7 @@ def add_book(title, author):
     if title not in books:
         books[title] = author
         print(f'Книга {title} автора {author} успешно добавлена.')
-        
+
 @log_function_info
 def find_book(title):
     '''Ищет книгу по названию и возвращает статус наличия в каталоге'''
