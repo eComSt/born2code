@@ -4,6 +4,7 @@
 import requests
 
 # координаты населенного пункта в формате "широта, долгота"
+q = "https://www.google.com/search?q=%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0+%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA&oq=gjujlg&gs_lcrp=EgZjaHJvbWUqDwgBEAAYChiDARixAxiABDIGCAAQRRg5Mg8IARAAGAoYgwEYsQMYgAQyEggCEAAYChiDARixAxjJAxiABDINCAMQABiSAxiABBiKBTIPCAQQABgKGIMBGLEDGIAEMg8IBRAAGAoYgwEYsQMYgAQyCQgGEAAYChiABDIPCAcQABgKGIMBGLEDGIAEMgkICBAAGAoYgAQyDwgJEAAYChiDARixAxiABNIBCDk0NTZqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8"
 coords = (55.0415, 82.9346)
 # ваш ключ с доступом к API Яндекс.Погоды
 API_KEY = 'ddb44d30-942f-4c09-a1ea-c912ea3e13cd'

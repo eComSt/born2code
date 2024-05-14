@@ -3,22 +3,22 @@ from tkinter import *
 import requests
 import random 
 from bs4 import BeautifulSoup
-def ex(event=None):
-    root.destroy()
-root = Tk()
-root.geometry('500x200')
-root.protocol('WM_DELETE_WINDOW', ex)
-root.attributes('-alpha',1)
-root.configure(bg='black')
-txt = Text(root,fg='lightgreen',bg='black',relief='groove',font=("Arial", 10), width=81, height=20)
-txt.place(x=2,y=2)
-root.bind("<q>",ex)
+# def ex(event=None):
+#     root.destroy()
+# root = Tk()
+# root.geometry('500x200')
+# root.protocol('WM_DELETE_WINDOW', ex)
+# root.attributes('-alpha',1)
+# root.configure(bg='black')
+# txt = Text(root,fg='lightgreen',bg='black',relief='groove',font=("Arial", 10), width=81, height=20)
+# txt.place(x=2,y=2)
+# root.bind("<q>",ex)
 
 def get_weather():
     ans=""
     try:
         city_id = 1496747
-        appid="336d96b279417cabdba8d4608cebced6"
+        appid="a8f6fef7a296bbce70aa16aca85698e3"
         res = requests.get("http://api.openweathermap.org/data/2.5/weather",
                  params={'id': city_id, 'units': 'metric', 'lang': 'ru', 'APPID': appid})
         data = res.json()
@@ -63,8 +63,8 @@ def get_anekdot():
 def printw(f):
     txt.insert(1.0,f())
 
-printw(get_data)
+print(get_weather())
 
-while True:
-    root.update()
-    root.attributes('-topmost', True)
+# while True:
+#     root.update()
+#     root.attributes('-topmost', True)
