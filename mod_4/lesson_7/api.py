@@ -37,4 +37,5 @@ def get_weather(city_name):
         f"Восход в {datetime.fromtimestamp(sunrise).strftime('%H:%M:%S')}",
         f"Закат в {datetime.fromtimestamp(sunset).strftime('%H:%M:%S')}")
 
-print(get_weather('Saint-Petersburg'))
+if __name__ == '__main__':
+    print(get_weather('Москва'))
