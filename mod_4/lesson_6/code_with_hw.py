@@ -15,12 +15,12 @@ params = {
 }
 response = requests.get(url, params=params) 
 data = response.json()
-# pprint(data)
 main = data['main']
 description = data['weather'][0]['description']
 wind = data['wind']
 sunrise = data['sys']['sunrise']
 sunset = data['sys']['sunset']
+clouds = data['clouds']
 print(f"время: {(sunset-sunrise)//3600} часов {((sunset-sunrise)%3600)//60} минут")
 print(f"Восход в {datetime.fromtimestamp(sunrise).strftime('%H:%M:%S')}")
 print(f"Закат в {datetime.fromtimestamp(sunset).strftime('%H:%M:%S')}")
@@ -28,3 +28,5 @@ print(f"Температура {main['temp']}°C, {description}")
 print(f"Ощущается как {main['feels_like']}°C")
 print(f"Ветер {wind['speed']} м/c")
 print(f"Влажность {main['humidity']}%")
+print(f"Облачность {clouds['all']}%")
+print(f"Максимальная температура на текущий момент {main['temp_max']}°C")
