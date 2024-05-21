@@ -7,6 +7,7 @@ USERS = {}
 def start(message):
     hello = "Привет, я бот, который показывает погоду в городе"
     bot.send_message(message.chat.id, hello)
+    change_city(message)
 
 def change_city(message):
     bot.send_message(message.chat.id, "Введите название города")
@@ -24,10 +25,18 @@ def menu():
     keyboard.add(but1, but2, but3)
     return keyboard
 
+def get_cur_weather(message):
+    try:
+        weather = get_weather(USERS[str(message.chat.id)])
+        answear = "\n".join(weather)
+    except:
+        answer = 'Погода по данному городу не найдена'
+    bot.send_message(message.chat.id, answear)
+
 @bot.message_handler(content_types=['text'])
 def get_text(message):
     if message.text == "Погода в городе":
-        bot.send_message(message.chat.id, get_weather(USERS[str(message.chat.id)]))
+        get_cur_weather(message)
     elif message.text == "Подробный прогноз на дату":
         bot.send_message(message.chat.id, 'Данная функция находится в разработке')
     elif message.text == "Сменить город":
@@ -35,4 +44,4 @@ def get_text(message):
     else:
         bot.send_message(message.chat.id, "Неизвестная команда")
 
-bot.polling()
+bot.infinity_polling()
