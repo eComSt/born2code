@@ -13,6 +13,14 @@ def days_buttons(message):
      days.add(button)
    bot.send_message(message.chat.id, text='Выберите нужный день',   	reply_markup=days)
 
+@bot.callback_query_handler(func=lambda call: ':' not in call.data)
+def hours_buttons(call):
+    date = call.data
+    hours = telebot.types.InlineKeyboardMarkup()
+    for hour in FORECASTS[date].keys():
+        button = telebot.types.InlineKeyboardButton(text=hour, callback_data=f'{date} {hour}')
+        hours.add(button)
+    bot.send_message(call.message.chat.id, text='Выберите нужное время', reply_markup=hours)
 
 @bot.message_handler(commands=['start'])
 def start(message):
