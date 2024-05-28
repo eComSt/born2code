@@ -1,8 +1,19 @@
 import telebot
-from api import get_weather
+from api import get_weather,get_daily_forecasts
 token = "7018542469:AAF8eACXN9IoJO56ae7Rd9HjRiVSRw5mMQ8"
 bot = telebot.TeleBot(token)
 USERS = {}
+FORECASTS = {}
+
+def days_buttons(message):
+   FORECASTS.update(get_daily_forecasts(USERS[str(message.chat.id)]))
+   days = telebot.types.InlineKeyboardMarkup()
+   for date in FORECASTS.keys():
+     button = telebot.types.InlineKeyboardButton(text=date, callback_data=date)
+     days.add(button)
+   bot.send_message(message.chat.id, text='Выберите нужный день',   	reply_markup=days)
+
+
 @bot.message_handler(commands=['start'])
 def start(message):
     hello = "Привет, я бот, который показывает погоду в городе"
@@ -38,7 +49,7 @@ def get_text(message):
     if message.text == "Погода в городе":
         get_cur_weather(message)
     elif message.text == "Подробный прогноз на дату":
-        bot.send_message(message.chat.id, 'Данная функция находится в разработке')
+        days_buttons(message)
     elif message.text == "Сменить город":
         change_city(message)
     else:
