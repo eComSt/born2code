@@ -22,6 +22,14 @@ def hours_buttons(call):
         hours.add(button)
     bot.send_message(call.message.chat.id, text='Выберите нужное время', reply_markup=hours)
 
+@bot.callback_query_handler(func=lambda call: ':' in call.data)
+def show_forecast(call):
+    data = call.data.split()
+    date, hour = data[0], data[1]
+    forecast = FORECASTS[date][hour]
+    answer = f'Прогноз на {date}, {hour}\n' + '\n'.join(forecast)
+    bot.send_message(call.message.chat.id, text=answer)
+
 @bot.message_handler(commands=['start'])
 def start(message):
     hello = "Привет, я бот, который показывает погоду в городе"
